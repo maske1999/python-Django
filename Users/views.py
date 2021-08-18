@@ -4,10 +4,11 @@ from django.contrib.auth.models import User
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as auth_login
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from .models import Post
 from django.conf import settings
 # Create your views here.
-
+@login_required
 def home(request):
     if request.POST:
         username=request.POST.get('username')
